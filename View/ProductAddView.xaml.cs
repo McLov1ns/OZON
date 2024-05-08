@@ -22,12 +22,6 @@ namespace OZON.View
         {
             InitializeComponent();
             DataContext = new ProductAddViewModel();
-            ProductAdded += ProductAddView_ProductAdded;
-        }
-
-        private void ProductAddView_ProductAdded(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
     }
 }

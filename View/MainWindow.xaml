@@ -13,36 +13,37 @@
         <DockPanel DockPanel.Dock="Top">
             <TextBlock Text="MainWindow" VerticalAlignment="Center" DockPanel.Dock="Left" Margin="5"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Content="Изменить" Command="{Binding EditCommand}" Margin="5"/>
-                <Button Content="Удалить" Command="{Binding DeleteCommand}" Margin="5"/>
-                <Button Content="Authorization" Command="{Binding OpenAuthorizationCommand}" Width="120" Height="30"/>
-                <Button Content="Add Product" Command="{Binding OpenProductAddCommand}" Margin="10 0" Width="120" Height="30"/>
+                <Button Content="Edit" Command="{Binding EditCommand}" Margin="5" Width="120" Height="30" IsEnabled="{Binding CanEdit}"/>
+                <Button Content="Delete" Command="{Binding DeleteCommand}" Margin="5" Width="120" Height="30" IsEnabled="{Binding CanDelete}"/>
+                <!--<Button Content="Authorization" Command="{Binding OpenAuthorizationCommand}" Margin="5" Width="120" Height="30"/>-->
+                <Button Content="Add Product" Command="{Binding OpenProductAddCommand}" Margin="5" IsEnabled="{Binding CanAddProduct}"/>
+                <Button Content="Exit" Command="{Binding ExitCommand}" Margin="5"/>
             </StackPanel>
         </DockPanel>
 
         <TabControl>
-            <TabItem Header="Empoyee">
-                <DataGrid ItemsSource="{Binding Employees}" AutoGenerateColumns="True"/>
+            <TabItem Header="Products">
+                <DataGrid ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}" AutoGenerateColumns="True"/>
             </TabItem>
-            <TabItem Header="Pickup Point">
+            <TabItem Header="Empoyee" IsEnabled="{Binding CanSee}">
+                <DataGrid ItemsSource="{Binding Employees}"  AutoGenerateColumns="True"/>
+            </TabItem>
+            <TabItem Header="Pickup Point" IsEnabled="{Binding CanSee}">
                 <DataGrid ItemsSource="{Binding PickupPoints}" AutoGenerateColumns="True"/>
             </TabItem>
-            <TabItem Header="Sellers">
+            <TabItem Header="Sellers" IsEnabled="{Binding CanSee}">
                 <DataGrid ItemsSource="{Binding Sellers}" AutoGenerateColumns="True"/>
             </TabItem>
-            <TabItem Header="Clients">
+            <TabItem Header="Clients" IsEnabled="{Binding CanSee}">
                 <DataGrid ItemsSource="{Binding Clients}" AutoGenerateColumns="True"/>
             </TabItem>
-            <TabItem Header="Products">
-                <DataGrid ItemsSource="{Binding Products}" AutoGenerateColumns="True"/>
-            </TabItem>
-            <TabItem Header="Orders">
+            <TabItem Header="Orders" IsEnabled="{Binding CanSee}">
                 <DataGrid ItemsSource="{Binding Orders}" AutoGenerateColumns="True"/>
             </TabItem>
-            <TabItem Header="Order Items">
+            <TabItem Header="Order Items" IsEnabled="{Binding CanSee}">
                 <DataGrid ItemsSource="{Binding OrderItems}" AutoGenerateColumns="True"/>
             </TabItem>
-            <TabItem Header="Order Assignments">
+            <TabItem Header="Order Assignments" IsEnabled="{Binding CanSee}">
                 <DataGrid ItemsSource="{Binding OrderAssignments}" AutoGenerateColumns="True"/>
             </TabItem>
         </TabControl>

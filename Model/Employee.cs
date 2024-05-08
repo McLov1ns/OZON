@@ -13,7 +13,7 @@ namespace OZON.Model
         private int _employeeID;
         private string _firstName;
         private string _lastName;
-        private string _login;
+        private string _username;
         private string _password;
         private string _position;
         private decimal _rating;
@@ -61,12 +61,12 @@ namespace OZON.Model
 
         public string Login
         {
-            get { return _login; }
+            get { return _username; }
             set
             {
-                if (_login != value)
+                if (_username != value)
                 {
-                    _login = value;
+                    _username = value;
                     OnPropertyChanged();
                 }
             }

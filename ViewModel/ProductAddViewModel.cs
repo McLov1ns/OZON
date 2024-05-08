@@ -1,4 +1,5 @@
 ﻿using OZON.Model;
+using OZON.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -86,7 +87,9 @@ namespace OZON.ViewModel
             _context.SaveChanges(); // Сохранение изменений в базе данных
 
             // Вызываем событие ProductAdded
-            ProductAdded?.Invoke(this, EventArgs.Empty);
+            /*ProductAdded?.Invoke(this, EventArgs.Empty)*/;
+            //var mainWindow = new MainWindow();
+            //mainWindow.ShowDialog();
 
             Console.WriteLine($"New product added: {newProduct.Name}, Price: {newProduct.Price}, Rating: {newProduct.Rating}, Seller ID: {newProduct.SellerID}");
             ClearFields();

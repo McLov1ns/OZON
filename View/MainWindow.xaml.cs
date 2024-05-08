@@ -22,7 +22,16 @@ namespace OZON.View
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
+            var mainViewModel = new MainViewModel();
+            DataContext = mainViewModel;
+
+            // Подписка на событие ProductAdded
+            //var productAddView = new ProductAddView();
+            //productAddView.ProductAdded += mainViewModel.ProductAddView_ProductAdded;
+        }
+        private void ProductAddView_ProductAdded(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
